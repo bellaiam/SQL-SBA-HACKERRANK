@@ -1,0 +1,8 @@
+Write a query to list the names of all courses where the # faculty assigned to those courses is zero.
+The output should be in alphabetical order by course name.
+
+//CODE
+SELECT course.name
+FROM course
+WHERE course.id NOT IN (SELECT courseId FROM facultyCourse)
+ORDER BY course.name;
