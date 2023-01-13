@@ -1,0 +1,13 @@
+The Curriculum Planning Committee is attempting to fill in gaps in the current course offerings.  
+You need to provide them with a query which lists each department and the number of courses offered by that department.  
+The two columns should have headers “Department Name? and “# Courses?, and the output should be sorted by the "# Courses" 
+in each department (ascending).
+*/
+//CODE
+
+SELECT department.name, count(course.name)
+FROM department
+JOIN course
+ON (department.id = course.deptid)
+GROUP BY department.name
+ORDER BY count(course.name);
