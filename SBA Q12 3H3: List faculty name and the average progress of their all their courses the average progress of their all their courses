@@ -1,6 +1,5 @@
-/*       4H-4
-Write a query just like #3, but where only those faculty where average progress in their courses is 90% or more 
-of the maximum observed in #2.  Order the output by decreasing average progress.
+/*  3H-3
+Write a query that outputs the faculty first name, last name, and average of the progress made over all of their courses.
 */
 
 //CODE
