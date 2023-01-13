@@ -1,5 +1,6 @@
-/*   4H-2
-Write a query that selects the maximum value of the average progress reported by the previous query.
+/*    3H-1
+Write a query to list each Course Name and the Average Progress of students in that course.  
+The output should be sorted descending by average progress.
 */
 
 //CODE
