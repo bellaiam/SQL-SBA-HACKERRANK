@@ -1,5 +1,5 @@
-/*  4H-3
-Write a query that outputs the faculty first name, last name, and average of the progress made over all of their courses.
+/*   3H-2
+Write a query that selects the maximum value of the average progress reported by the previous query.
 */
 //CODE
 
