@@ -1,0 +1,11 @@
+The enrollment team is gathering analytics about student enrollment and they now want to know about August 
+admissions specifically. Write a query that lists the Start Date and # of Students who enrolled in classes 
+in August of each year. Output should be ordered by start date ascending.
+
+//CODE
+
+SELECT startDate, count(distinct studentId) 
+FROM studentCourse
+WHERE MONTH(startdate) ='08'
+GROUP BY startdate
+ORDER BY startdate, count(studentId);
