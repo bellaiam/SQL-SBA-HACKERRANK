@@ -1,0 +1,9 @@
+The enrollment team is gathering analytics about student enrollment throughout the years. Write a query 
+that lists the total # of students that were enrolled in classes during each school year.  
+The first column should have the header “Students?.  Provide a second “Year? column showing the enrollment year.
+
+SELECT count(distinct studentId) AS 'Students',
+YEAR(startDate) as 'Year'
+FROM studentCourse
+GROUP BY YEAR
+ORDER BY YEAR, Students DESC;
