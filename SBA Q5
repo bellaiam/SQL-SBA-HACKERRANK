@@ -1,0 +1,14 @@
+Using the above, write a query to list the course names and the # of students in those courses for all
+courses where there are no assigned faculty.  The output should be ordered first by # of students 
+descending and then by course name ascending.
+
+
+//CODE
+
+SELECT course.name, count(studentCourse.studentId)
+FROM course
+JOIN studentCourse
+ON (course.id = studentCourse.courseId)
+WHERE course.id NOT IN (SELECT courseId FROM facultyCourse)
+GROUP BY course.name
+ORDER BY count(studentCourse.studentId) DESC, course.name ASC;
