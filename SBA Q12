@@ -1,0 +1,14 @@
+/*       4H-4
+Write a query just like #3, but where only those faculty where average progress in their courses is 90% or more 
+of the maximum observed in #2.  Order the output by decreasing average progress.
+*/
+
+//CODE
+SELECT faculty.firstname, faculty.lastname, ROUND(AVG(studentCourse.progress), 1)
+FROM faculty
+JOIN facultyCourse
+ON (faculty.id = facultyCourse.facultyid)
+JOIN studentCourse
+ON (facultyCourse.courseID = studentCourse.courseID)
+GROUP BY faculty.firstname, faculty.lastname
+ORDER BY ROUND(AVG(studentCourse.progress), 1) DESC, faculty.firstname, faculty.lastname;
