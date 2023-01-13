@@ -1,0 +1,12 @@
+/*  4H-3
+Write a query that outputs the faculty first name, last name, and average of the progress made over all of their courses.
+*/
+//CODE
+
+SELECT course.name, ROUND(AVG(studentCourse.progress), 1) 
+FROM course 
+JOIN studentCourse
+ON (course.id = studentCourse.courseId)
+GROUP BY course.name
+ORDER BY ROUND(AVG(studentCourse.progress),1) DESC
+LIMIT 1;
