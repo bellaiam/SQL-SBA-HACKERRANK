@@ -1,0 +1,21 @@
+Students are required to take 4 courses, and at least two of these courses must be from the department of their 
+major.  Write a query to list students’ First Name, Last Name, and Number of Courses they are taking in their 
+major department.  The output should be sorted first in increasing order of the number of courses, then by 
+student last name.
+/*
+Enter your query below.
+Please append a semicolon ";" at the end of the query
+*/
+
+//CODE
+
+
+SELECT student.firstname, student.lastname, count(studentCourse.courseId)
+FROM student
+JOIN studentCourse
+ON (student.id = studentCourse.studentId)
+JOIN course
+ON (studentCourse.courseID = course.id)
+WHERE student.majorId = course.deptId
+GROUP BY studentId
+ORDER BY count(studentCourse.courseId) DESC, student.firstname, student.lastname;
