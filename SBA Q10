@@ -1,0 +1,12 @@
+/*   4H-2
+Write a query that selects the maximum value of the average progress reported by the previous query.
+*/
+
+//CODE
+
+SELECT course.name, ROUND(AVG(studentCourse.progress), 1)
+FROM course 
+JOIN studentCourse
+ON (course.id = studentCourse.courseId)
+GROUP BY course.name
+ORDER BY ROUND(AVG(studentCourse.progress),1) DESC, course.name ASC;
