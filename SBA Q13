@@ -1,0 +1,31 @@
+/*        4I
+Students are awarded two grades based on the minimum and maximum progress they are making in the courses.  
+The grading scale is as follows:
+   Progress < 40:          F
+  Progress < 50:         D
+ Progress < 60:                C
+        Progress < 70:               B
+       Progress >= 70:             A
+Write a query which displays each student’s first name, lastname, grade based on minimum progress, and grade based on maximum progress.
+*/
+
+//CODE
+
+SELECT student.firstname, student.lastname, (CASE
+WHEN MIN(studentCourse.progress) < 40 THEN 'F'
+WHEN MIN(studentCourse.progress) < 50 THEN 'D'
+WHEN MIN(studentCourse.progress) < 60 THEN 'C'  
+WHEN MIN(studentCourse.progress) < 70 THEN 'B'
+ELSE 'A'
+END) AS minGrade,(CASE
+WHEN MAX(studentCourse.progress) < 40 THEN 'F'
+WHEN MAX(studentCourse.progress) < 50 THEN 'D'
+WHEN MAX(studentCourse.progress) < 60 THEN 'C'  
+WHEN MAX(studentCourse.progress) < 70 THEN 'B'
+ELSE 'A'
+END) AS maxGrade
+FROM student
+JOIN studentCourse
+ON (student.id = studentCourse.studentId)
+GROUP BY student.firstname, student.lastname
+ORDER BY minGrade DESC, maxGrade DESC, student.firstname, student.lastname;
