@@ -1,0 +1,12 @@
+The recruiting department needs to know which courses are most popular with the students.  
+Please provide them with a query which lists each course and the number of students in that course.  
+The two columns should have headers “Course Name? and “# Students?, and the output should be sorted 
+by # Students descending and then by course name ascending.
+
+// CODE
+SELECT course.name, count(studentCourse.courseID)
+FROM course
+JOIN studentCourse
+ON (course.id = studentCourse.courseId)
+GROUP BY course.name
+ORDER BY count(studentCourse.courseID) DESC, course.name ASC;
