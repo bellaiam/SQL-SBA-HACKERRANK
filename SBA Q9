@@ -1,0 +1,14 @@
+Students making average progress in their courses of less than 50% need to be offered tutoring assistance.  
+Write a query to list First Name, Last Name and Average Progress of all students achieving average progress of 
+less than 50%.  The average progress as displayed should be rounded to one decimal place.  Sort the
+output by average progress descending.
+
+//CODE
+
+SELECT student.firstname, student.lastname, ROUND(AVG(studentCourse.progress),1)
+FROM student
+JOIN studentCourse
+ON (student.id = studentCourse.studentId)
+GROUP BY student.firstname, student.lastname
+HAVING AVG(studentCourse.progress) < 50
+ORDER BY ROUND(AVG(studentCourse.progress),1) DESC, student.firstname, student.lastname;
